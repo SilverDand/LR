@@ -9,25 +9,25 @@
 #define MEM_NAME "ourmemory"
 
 int threads(void);
-void *thread 1(void *);
-void *thread 2(void *);
-int process 1(void);
+void *thread_1(void *);
+void *thread_2(void *);
+int process_1(void);
 int process_2(void);
 
 // Структура разделяемой памяти
 typedef struct
 {
 	sem_t	sem;
-	int		value;
+	int	value;
 }
 sh_mem_t;
 
 pthread_mutex_t mut;// Мьютекс
-sh_mem_t		*sm;// Указатель на разделяемую память
+sh_mem_t	*sm;// Указатель на разделяемую память
 
 int main(void)
 {
-	int	md;			// Дескриптор разделяемой памяти
+	int	md;		// Дескриптор разделяемой памяти
 	int	childpid;	// Идентификатор дочернего процесса
 
 	/* ИНИЦИАЛИЗАЦИЯ */
@@ -89,7 +89,7 @@ int main(void)
 	else
 	(
 		// Дочерний процесс
-		if (process 2())
+		if (process_2())
 		(	
 			perror("process_2() ");
 			exit (EXIT_FAILURE);
